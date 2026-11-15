@@ -4,7 +4,10 @@
 // saved cache are both unavailable.
 
 export const RATE_CACHE_KEY = "zigo-finance-rate";
-export const FRANKFURTER_URL = "https://api.frankfurter.app/latest?from=EUR&to=CZK";
+// frankfurter.app redirects to this host. The redirect response has no
+// Access-Control-Allow-Origin, so a browser fetch of the .app URL fails.
+// The v1 endpoint itself allows any origin.
+export const FRANKFURTER_URL = "https://api.frankfurter.dev/v1/latest?from=EUR&to=CZK";
 export const FALLBACK_QUOTE = {
   rate: 24.424,
   rateDate: "2026-11-13",
